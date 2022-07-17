@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from movielist.models import Movie, Person
+from movielist.models import Movie, Person, Cinema
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -9,3 +9,11 @@ class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = ("id", "title", "year", "description", "director", "actors")
+
+
+class CinemaSerializer(serializers.ModelSerializer):
+    movies = serializers.HyperlinkedRelatedField(many=True, read_only=True, view_name="movies-detail")
+
+    class Meta:
+        model = Cinema
+        fields = ("name", "city", "movies")
