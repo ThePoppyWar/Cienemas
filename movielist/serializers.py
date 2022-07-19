@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from movielist.models import Movie, Person, Cinema
-
+from movielist.models import Movie, Person
+from showtime.models import Cinema
 
 class MovieSerializer(serializers.ModelSerializer):
     actors = serializers.SlugRelatedField(many=True, slug_field='name', queryset=Person.objects.all())

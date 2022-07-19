@@ -1,6 +1,8 @@
-from movielist.models import Movie, Cinema
+from movielist.models import Movie
 from movielist.serializers import MovieSerializer, CinemaSerializer
 from rest_framework import generics
+
+from showtime.models import Cinema
 
 
 class MovieListView(generics.ListCreateAPIView):
