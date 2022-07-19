@@ -26,7 +26,7 @@ def add_screening_fake(cinema):
 
 
 def cinema_fake_data():
-    cinema_data = {
+    return {
         "name": faker.name(),
         "city": faker.city(),
     }
