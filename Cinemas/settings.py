@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import Cinemas
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -40,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'movielist',
-    'showtime'
+    'showtime',
 ]
 
 MIDDLEWARE = [
