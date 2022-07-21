@@ -23,8 +23,9 @@ def client():
 def set_up():
     for _ in range(5):
         Cinema.objects.create(name=faker.name())
-    for _ in range(3):
-        create_fake_cinema()
     for _ in range(10):
         create_fake_movie()
+    for _ in range(3):
+        create_fake_cinema()
+
 
