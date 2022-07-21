@@ -48,6 +48,11 @@ def test_get_cinema_list(client, set_up):
     assert response.status_code == 200
     assert Cinema.objects.count() == len(response.data)
 
+def test_get_screening_list(client, set_up):
+    response = client.get("/screening/", {}, format="json")
+
+    assert response.status_code == 200
+    assert Screening.objects.count() == len(response.data)
 
 @pytest.mark.django_db
 def test_get_cinema_detail(client, set_up):
@@ -56,6 +61,15 @@ def test_get_cinema_detail(client, set_up):
 
     assert response.status_code == 200
     for field in ("name", "city", "movies"):
+        assert field in response.data
+
+@pytest.mark.django_db
+def test_get_screening_detail(client, set_up):
+    screening = Screening.objects.first()
+    response = client.get(f"/screenings/{screening.id}/", {}, format="json")
+
+    assert response.status_code == 200
+    for field in ('movie', "cinema", "date"):
         assert field in response.data
 
 
