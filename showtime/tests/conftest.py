@@ -3,6 +3,7 @@ import sys
 import pytest
 from faker import Faker
 
+from movielist.models import Person
 from movielist.tests.utils import create_fake_movie
 from showtime.tests.utils import create_fake_cinema
 
@@ -22,7 +23,7 @@ def client():
 @pytest.fixture
 def set_up():
     for _ in range(5):
-        Cinema.objects.create(name=faker.name())
+        Person.objects.create(name=faker.name())
     for _ in range(10):
         create_fake_movie()
     for _ in range(3):
