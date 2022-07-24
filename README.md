@@ -1,4 +1,4 @@
-# Cienemas REST API
+# Cinemas REST API
 
 
 A REST API built with Django Framework.
